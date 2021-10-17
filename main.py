@@ -3,4 +3,4 @@
 from bool_hacker_main import hack
 from tests import *
 
-hack(wiki3)
+hack(dummy3)

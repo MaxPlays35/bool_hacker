@@ -247,6 +247,14 @@ def ege(logic: Callable, sdnf: str, args: Tuple[str], table: List[List[bool]]):
                     print("", selected[col][idx], sep=TABLE_COLUMN_SEPARATOR, end="")
             idx += 1
             print("", int(not is_neg), "", sep=TABLE_COLUMN_SEPARATOR)
+
+        print()
+        print(STEP_DEC, end='')
+        print("Ответ: ", end='')
+        print(RESULT_DEC, end='')
+        print(','.join(args_shuffled), end='')
+        print(STEP_DEC)
+        print(RESET)
         return None
 
     print(LIGHT_RED, end="")
