@@ -235,11 +235,16 @@ def ege(logic: Callable, sdnf: str, args: Tuple[str], table: List[List[bool]]):
         print(RESET)
         print("", TABLE_COLUMN_SEPARATOR.join(["_" for i in range(len(args))]), "F", "", sep=TABLE_COLUMN_SEPARATOR)
         idx = 0
-        already_deleted = False
+        idx_1 = random.choice(list(selected.keys()))
+        idx_2 = random.randint(0, len(selected[idx_1]) - 1)
+        selected[idx_1][idx_2] = "*"
 
         for row in range(len(list(selected.values())[0])):
             for col in args_shuffled:
-                print("", int(selected[col][idx]), sep=TABLE_COLUMN_SEPARATOR, end="")
+                if selected[col][idx] != "*":
+                    print("", int(selected[col][idx]), sep=TABLE_COLUMN_SEPARATOR, end="")
+                else:
+                    print("", selected[col][idx], sep=TABLE_COLUMN_SEPARATOR, end="")
             idx += 1
             print("", int(not is_neg), "", sep=TABLE_COLUMN_SEPARATOR)
         return None
@@ -350,7 +355,7 @@ def hack(logic: Callable):
         print(STEP_DEC)
         sheffer(sdnf_2)
         print(STEP_DEC, end='')
-        print("SDNF: ", end='')
+        print("Nonfictive vars: ", end='')
         print(RESULT_DEC, end='')
         print(','.join(nonfictive_vars), end='')
         print(STEP_DEC)
